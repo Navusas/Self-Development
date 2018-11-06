@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Z-FileSearcher1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/server/model/players/packets/Z-FileSearcher.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
