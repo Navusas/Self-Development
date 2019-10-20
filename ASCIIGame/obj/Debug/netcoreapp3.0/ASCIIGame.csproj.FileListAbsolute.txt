@@ -1,0 +1,11 @@
+C:\Users\1\source\repos\ASCIIGame\obj\Debug\netcoreapp3.0\ASCIIGame.csprojAssemblyReference.cache
+C:\Users\1\source\repos\ASCIIGame\obj\Debug\netcoreapp3.0\ASCIIGame.AssemblyInfoInputs.cache
+C:\Users\1\source\repos\ASCIIGame\obj\Debug\netcoreapp3.0\ASCIIGame.AssemblyInfo.cs
+C:\Users\1\source\repos\ASCIIGame\bin\Debug\netcoreapp3.0\ASCIIGame.exe
+C:\Users\1\source\repos\ASCIIGame\bin\Debug\netcoreapp3.0\ASCIIGame.deps.json
+C:\Users\1\source\repos\ASCIIGame\bin\Debug\netcoreapp3.0\ASCIIGame.runtimeconfig.json
+C:\Users\1\source\repos\ASCIIGame\bin\Debug\netcoreapp3.0\ASCIIGame.runtimeconfig.dev.json
+C:\Users\1\source\repos\ASCIIGame\bin\Debug\netcoreapp3.0\ASCIIGame.dll
+C:\Users\1\source\repos\ASCIIGame\bin\Debug\netcoreapp3.0\ASCIIGame.pdb
+C:\Users\1\source\repos\ASCIIGame\obj\Debug\netcoreapp3.0\ASCIIGame.dll
+C:\Users\1\source\repos\ASCIIGame\obj\Debug\netcoreapp3.0\ASCIIGame.pdb
