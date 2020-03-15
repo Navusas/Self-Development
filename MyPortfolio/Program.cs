@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,5 +16,23 @@ namespace MyPortfolio
 
       await builder.Build().RunAsync();
     }
+    /*
+    public enum SkillTypes
+    {
+      Persistence,
+      Passion,
+      Dedication
+    }
+
+    public static async Employee GetMe()
+    {
+      Dictionary<SkillTypes, bool> mySkills = new Dictionary<SkillTypes, bool>
+      {
+      (SkillTypes.Dedication,   true),
+      (SkillTypes.Passion,      true),
+      (SkillTypes.Persistence,  true)
+      };
+      if(YOU.LookingForEmployee() && YOU)
+    } */
   }
 }

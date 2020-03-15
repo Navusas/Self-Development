@@ -1,25 +1,63 @@
-﻿<div class="pl-4 navbar navbar-dark">
+﻿<div class="pl-lg-5 sticky-top navbar navbar-dark">
+    <!-- Navbar Branding-->
     <a class="navbar-brand" href="">Domantas Giedraitis</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="@NavMenuCssClass" onclick="ToggleNavMenu()">
         <ul class="nav flex-row">
-            <li class="nav-item px-1">
-                <NavLink class="nav-link" href="About-me">
+
+            <!-- About Me Dropdown -->
+            <li class="nav-item dropdown px-1">
+                <NavLink class="nav-link dropdown-toggle" href="About-me" data-toggle="dropdown">
                     <span class="oi oi-person" aria-hidden="true"></span> About Me
                 </NavLink>
+                <div class="dropdown-menu px-1">
+                    <NavLink class="nav-link" href="About-me#Profile-and-contacts">
+                        <span class="oi oi-info" aria-hidden="true"></span> Profile & Contacts
+                    </NavLink>
+                    <NavLink class="nav-link" href="About-me#Education">
+                        <span class="oi oi-book" aria-hidden="true"></span> Education
+                    </NavLink>
+                    <NavLink class="nav-link" href="About-me#Activities-and-interests">
+                        <span class="oi oi-sun" aria-hidden="true"></span> Activities & Interests
+                    </NavLink>
+                </div>
             </li>
-            <li class="nav-item px-1">
-                <NavLink class="nav-link" href="Personal-skills">
+
+
+            <!-- Skills Dropdown -->
+            <li class="nav-item dropdown px-1">
+                <NavLink class="nav-link dropdown-toggle" href="Personal-skills" data-toggle="dropdown">
                     <span class="oi oi-graph" aria-hidden="true"></span> Skills
                 </NavLink>
+                <div class="dropdown-menu px-1">
+                    <NavLink class="nav-link" href="Personal-skills#Technical-skills">
+                        <span class="oi oi-code" aria-hidden="true"></span> Technical Skills
+                    </NavLink>
+                    <NavLink class="nav-link" href="Personal-skills#Personal-traits">
+                        <span class="oi oi-align-left" aria-hidden="true"></span> Personal Traits
+                    </NavLink>
+                    <NavLink class="nav-link" href="Personal-skills#Achievements">
+                        <span class="oi oi-badge" aria-hidden="true"></span> Achievements
+                    </NavLink>
+                </div>
             </li>
+            <!-- Projects -->
+            <li class="nav-item px-1">
+                <NavLink class="nav-link" href="Projects">
+                    <span class="oi oi-project" aria-hidden="true"></span> Projects
+                </NavLink>
+            </li>
+
+            <!-- Work Experience-->
             <li class="nav-item px-1">
                 <NavLink class="nav-link" href="Work-experience">
                     <span class="oi oi-briefcase" aria-hidden="true"></span> Work Experience
                 </NavLink>
             </li>
+
         </ul>
     </div>
 </div>

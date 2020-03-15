@@ -21,22 +21,39 @@ app {
     position: relative;
     display: flex;
     flex-direction: column;
+    min-height:100vh;
 }
 
 .main {
     flex: 1;
 }
+
+.introPageClass {
+    height: 90vh;
+    width: 100%;
+    top: 0;
+    position: relative;
+}
+    .introPageClass .introPageImage {
+        height: 100%;
+        width: 100%;
+    }
 /* ---------------------------------------------
                  Main Styling End
    --------------------------------------------- */
-
 
 /* ---------------------------------------------
                Navigation Panel Start
    --------------------------------------------- */
 .sidebar {
     background-image: linear-gradient(90deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    top:0;
 }
+    .sidebar .dropdown-menu {
+        background-image: linear-gradient(360deg, rgb(5, 39, 103) 0%, #3a0647 50%);
+        min-width: 250px;
+    }
+
     .sidebar .navbar-brand {
         font-size: 1.1rem;
         letter-spacing:3px;
@@ -77,6 +94,10 @@ app {
                 background-color: rgba(255,255,255,0.1);
                 color: white;
             }
+
+.dropdown:hover > .dropdown-menu {
+    display:block;
+}
 /* ---------------------------------------------
                Navigation Panel End
    --------------------------------------------- */
@@ -141,7 +162,6 @@ app {
           Small Dimensions Styling End
    --------------------------------------------- */
 
-
 /* ---------------------------------------------
           Normal Dimensions Styling Start
    --------------------------------------------- */
@@ -152,9 +172,8 @@ app {
 
     .sidebar {
         width: 100%;
-        height: 3.2rem;
-        position: sticky;
-        top: 0;
+        height: 3.5rem;
+        position:sticky;
     }
 
     .main > div {

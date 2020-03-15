@@ -1,11 +1,41 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager MyNavigationManager
 
+<!-- The Intro Page-->
+<div class="introPageClass" style="display:@ShouldDisplayIntroDiv()">
+    <MyPortfolio.Pages.IntroPage />
+</div>
+
+<!-- The Navigation Bar-->
 <div class="sidebar">
     <NavMenu />
 </div>
 
+<!-- The rest of the component-->
 <div class="main">
     <div class="content px-4">
         @Body
     </div>
 </div>
+
+@functions
+{
+  @using Microsoft.AspNetCore.Components;
+
+  /// <summary>
+  ///  Compares the <seealso cref="NavigationManager.BaseUri" and 
+  ///  <seealso cref="NavigationManager.Uri"/> in order to find, whether opened
+  ///  uri is base (index.razor) or not/>
+  /// </summary>
+  /// <returns>"block" if this is index (base uri), "none" otherwise</returns>
+  public string ShouldDisplayIntroDiv()
+  {
+      string display        = "block";
+      string displayNot     = "none";
+      string baseURI = MyNavigationManager.BaseUri;
+      string thisURI = MyNavigationManager.Uri;
+
+      return baseURI == thisURI ? display : displayNot;
+  }
+
+}
