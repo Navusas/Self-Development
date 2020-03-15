@@ -1,29 +1,29 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿<div class="pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Domantas Giedraitis</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="@NavMenuCssClass" onclick="ToggleNavMenu()">
+        <ul class="nav flex-row">
+            <li class="nav-item px-1">
+                <NavLink class="nav-link" href="About-me">
+                    <span class="oi oi-person" aria-hidden="true"></span> About Me
+                </NavLink>
+            </li>
+            <li class="nav-item px-1">
+                <NavLink class="nav-link" href="Personal-skills">
+                    <span class="oi oi-graph" aria-hidden="true"></span> Skills
+                </NavLink>
+            </li>
+            <li class="nav-item px-1">
+                <NavLink class="nav-link" href="Work-experience">
+                    <span class="oi oi-briefcase" aria-hidden="true"></span> Work Experience
+                </NavLink>
+            </li>
+        </ul>
+    </div>
 </div>
-<div class="@NavMenuCssClass" onclick="ToggleNavMenu()">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="About-me">
-                <span class="oi oi-person" aria-hidden="true"></span> About Me
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="Personal-skills">
-                <span class="oi oi-graph" aria-hidden="true"></span> Skills
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="Work-experience">
-                <span class="oi oi-briefcase" aria-hidden="true"></span> Work Experience
-            </NavLink>
-        </li>
-    </ul>
-</div>
--->
+
 @code {
     private bool collapseNavMenu = true;
 
