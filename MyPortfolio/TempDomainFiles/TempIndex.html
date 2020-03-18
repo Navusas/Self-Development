@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Under Development...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        /* Global */
+        html {
+            min-height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            height: calc(100vh - 8em);
+            padding: 4em;
+            background-image: linear-gradient(360deg,rgb(0,0,0) 0%, rgb(50,50,50) 70%);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .centeredDiv50 {
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .errorPageContent {
+            height: 100%;
+            line-height: 1;
+        }
+
+            .errorPageContent .centeredDiv50 > span {
+                line-height: 1.5;
+                text-align: center;
+                color: whitesmoke;
+                font-size: 2rem;
+                font-weight: bold;
+            }
+    </style>
+
+    <script type="text/javascript" src="JavaScript.js"></script>
+
+</head>
+<body onload="firstLineWritter()">
+    <div class="errorPageContent">
+        <div class="centeredDiv50">
+            <span id="firstLine" class=".line-1"></span>
+            <span id="secondLine" class=".line-1"></span> <span id="urlID" class=".line-1" style="display:none"><a href=https://www.linkedin.com/in/domg/"><img src="https://www.freepnglogos.com/uploads/linkedin-symbol-logo-22.png" width="100px" height="100px"></a></span>
+        </div>>
+    </div>
+</body>
+
+</html>
