@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\IntroPage.razor" />
+    <Content Remove="wwwroot\images\ARROW_BOTTOM.PNG" />
+    <Content Remove="wwwroot\images\ARROW_LEFT.PNG" />
+    <Content Remove="wwwroot\images\ARROW_RIGHT.PNG" />
+    <Content Remove="wwwroot\images\ARROW_TOP.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="TempIndex.html" />
   </ItemGroup>
 
@@ -20,5 +28,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0-preview2.20160.5" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.2.0-preview2.20160.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="wwwroot\images\ARROW_BOTTOM.PNG" />
+    <Resource Include="wwwroot\images\ARROW_LEFT.PNG" />
+    <Resource Include="wwwroot\images\ARROW_RIGHT.PNG" />
+    <Resource Include="wwwroot\images\ARROW_TOP.PNG" />
   </ItemGroup>
 </Project>

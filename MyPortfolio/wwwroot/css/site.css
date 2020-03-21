@@ -80,6 +80,89 @@ app {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
+
+.arrow-right {
+    position: absolute;
+    left: 100%;
+    margin-left: -200px;
+    top: 50%;
+    margin-top: -50px;
+}
+.arrow-left {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+}
+.arrow-top {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+}
+.arrow-bottom {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    top: 100%;
+    margin-top: -200px;
+}
+
+.left {
+    background-color: green;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: width 1s;
+    width: 0;
+}
+
+    .left.active {
+        width: 200vh;
+    }
+
+.right {
+    background-color: red;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: left 1s;
+}
+
+    .right.active {
+        left: 200vh;
+    }
+
+.top {
+    background-color: green;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: width 1s;
+    width: 0;
+}
+
+    .top.active {
+        height: 200vh;
+    }
+
+.bottom {
+    background-color: red;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: left 1s;
+}
+
+    .bottom.active {
+        bottom: 200vh;
+    }
+
+
 /* ---------------------------------------------
                  Main Styling End
    --------------------------------------------- */
