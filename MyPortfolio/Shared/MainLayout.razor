@@ -1,13 +1,136 @@
 ﻿@inherits LayoutComponentBase
 @inject NavigationManager MyNavigationManager
 <!-- The Navigation Bar-->
-<div class="sidebar">
+<div class="sidebar" @onkeydown="ToggleScreens" tabindex="0">
     <NavMenu />
 </div>
 
 <!-- The rest of the component-->
-<div class="main">
-    <div class="content">
-        @Body
+<div tabindex="0" class="main" @onkeydown="ToggleScreens">
+    <div class="content" @onkeydown="ToggleScreens">
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowRight" class="arrow-right @IsVisibleClassArrowRight" src="../images/ARROW_RIGHT.png" height="150" width="150"/>
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowLeft" class="arrow-left @IsVisibleClassArrowLeft" src="../images/ARROW_LEFT.png" height="150" width="150"/>
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowTop" class="arrow-top @ActiveCssClassArrowTop @IsVisibleClassArrowTop" src="../images/ARROW_TOP.png" height="150" width="150"/>
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowBottom" class="arrow-bottom @ActiveCssClassArrowBottom @IsVisibleClassArrowBottom" src="../images/ARROW_BOTTOM.png" height="150" width="150"/>
+        <div class="left @ActiveCssClassArrowLeft @IsVisibleClassContentLeft"> <MyPortfolio.Pages.AboutMePage /></div>
+        <div class="right @ActiveCssClassArrowRight @IsVisibleClassContentRight"> <MyPortfolio.Pages.WorkExperiencePage /></div>
+        <div class="center @IsVisibleClassContentCentre"> <MyPortfolio.Pages.Index/></div>
     </div>
 </div>
+
+@code {
+
+  /// <summary>
+  /// Changes the <seealso cref="ActiveArrowDirection"/> value
+  /// to new specified IF it is not currently displayed
+  /// </summary>
+  /// <param name="newDirection"></param>
+  public void ChangeArrowDisplay(Direction newDirection)
+  {
+      if(ActiveArrowDirection == Direction.None)
+      {
+          ActiveArrowDirection = newDirection;
+      }
+      else if(ActiveArrowDirection == OppositeArrowSides[newDirection])
+      {
+          ActiveArrowDirection = Direction.None;
+      }
+  }
+
+  /// <summary>
+  /// All available directions
+  /// </summary>
+  public enum Direction
+  {
+      None,
+      Right,
+      Left,
+      Top,
+      Bottom
+  }
+
+  #region Handle Keyboard
+  /// <summary>
+  /// Handles the UP, DOWN, LEFT, RIGHT arrows keyboard input
+  /// </summary>
+  /// <param name="eventArg"></param>
+  public void ToggleScreens(KeyboardEventArgs eventArg)
+  {
+      switch (eventArg.Code)
+      {
+          case "ArrowRight":
+              {
+                  ChangeArrowDisplay(Direction.Right);
+                  break;
+              }
+          case "ArrowLeft":
+              {
+                  ChangeArrowDisplay(Direction.Left);
+                  break;
+              }
+          case "ArrowUp":
+              {
+                  ChangeArrowDisplay(Direction.Top);
+                  break;
+              }
+          case "ArrowDown":
+              {
+                  ChangeArrowDisplay(Direction.Bottom);
+                  break;
+              }
+      }
+  }
+  #endregion
+
+  #region Arrow Css Handling
+  /// <summary>
+  /// Opoosite direction (the one, which should only be visible at the moment)
+  /// </summary>
+  protected Dictionary<Direction, Direction> OppositeArrowSides = new Dictionary<Direction, Direction>() {
+            { Direction.Right, Direction.Left },
+            { Direction.Left, Direction.Right },
+            { Direction.Bottom, Direction.Top },
+            { Direction.Top, Direction.Bottom },
+            { Direction.None, Direction.None  },
+          };
+
+  /// <summary>
+  /// Current Direction (which arrow has been clicked lastly)
+  /// </summary>
+  protected Direction ActiveArrowDirection { get; set; } = Direction.None;
+
+
+  /// <summary>
+  /// 'ACTIVE' css class enabling
+  /// </summary>
+  protected string ActiveCssClassArrowRight => ActiveArrowDirection == Direction.Right ? ".active" : string.Empty;
+  protected string ActiveCssClassArrowLeft => ActiveArrowDirection == Direction.Left ? ".active" : string.Empty;
+  protected string ActiveCssClassArrowTop => ActiveArrowDirection == Direction.Top ? ".active" : string.Empty;
+  protected string ActiveCssClassArrowBottom => ActiveArrowDirection == Direction.Bottom ? ".active" : string.Empty;
+
+  /// <summary>
+  /// Appends .visible and .hidden classes for allowed arrows
+  /// </summary>
+  protected string IsVisibleClassArrowRight => ActiveArrowDirection == Direction.None || OppositeArrowSides[ActiveArrowDirection] == Direction.Right ? "visible" : "hidden";
+  protected string IsVisibleClassArrowLeft => ActiveArrowDirection == Direction.None || OppositeArrowSides[ActiveArrowDirection] == Direction.Left ? "visible" : "hidden";
+  protected string IsVisibleClassArrowTop => ActiveArrowDirection == Direction.None || OppositeArrowSides[ActiveArrowDirection] == Direction.Top ? "visible" : "hidden";
+  protected string IsVisibleClassArrowBottom => ActiveArrowDirection == Direction.None || OppositeArrowSides[ActiveArrowDirection] == Direction.Bottom ? "visible" : "hidden";
+
+  /// <summary>
+  /// Appends .visible and .hidden classes for allowed arrows
+  /// </summary>
+  protected string IsVisibleClassContentRight => ActiveArrowDirection != Direction.None && OppositeArrowSides[ActiveArrowDirection] != Direction.Right ? "visible" : "hidden";
+  protected string IsVisibleClassContentLeft => ActiveArrowDirection != Direction.None && OppositeArrowSides[ActiveArrowDirection] != Direction.Left ? "visible" : "hidden";
+  protected string IsVisibleClassContentTop => ActiveArrowDirection != Direction.None && OppositeArrowSides[ActiveArrowDirection] != Direction.Top ? "visible" : "hidden";
+  protected string IsVisibleClassContentBottom => ActiveArrowDirection != Direction.None && OppositeArrowSides[ActiveArrowDirection] != Direction.Bottom ? "visible" : "hidden";
+  protected string IsVisibleClassContentCentre => ActiveArrowDirection == Direction.None ? "visible" : "hidden";
+
+  /// <summary>
+  /// On Click Handlers
+  /// </summary>
+  public void toggleActiveClassArrowRight() => ChangeArrowDisplay(Direction.Right);
+  public void toggleActiveClassArrowLeft() => ChangeArrowDisplay(Direction.Left);
+  public void toggleActiveClassArrowTop() => ChangeArrowDisplay(Direction.Top);
+  public void toggleActiveClassArrowBottom() => ChangeArrowDisplay(Direction.Bottom);
+  #endregion
+}
