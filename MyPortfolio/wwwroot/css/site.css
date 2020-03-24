@@ -165,30 +165,28 @@ app {
 .top {
     position: fixed;
     background-color: yellow;
-    width: 0;
+    width: 100%;
     height: 0;
     opacity: 0;
     transition: height 1s, opacity 1s;
 }
     .top.active {
-        height: 100vh;
+        height: 100%;
         opacity: 1;
-        width: 100vw;
     }
 
 .bottom {
-    position:relative;
+    position: fixed;
     background-color: blue;
-    width: 0;
-    height: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
-    bottom: 100vh;
-    transition: height 1s, opacity 1s;
+    top: 100%;
+    transition: top 1s, opacity 1s;
 }
     .bottom.active {
-        height: 100vh;
         opacity: 1;
-        width: 100vw;
+        top: 5%;
     }
 
 /* ---------------------------------------------
