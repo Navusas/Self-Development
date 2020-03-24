@@ -89,21 +89,24 @@ app {
 }
 
 .arrow-right {
-    position: absolute;
+    position: fixed;
     left: 100%;
     margin-left: -200px;
     top: 50%;
     margin-top: -50px;
+    z-index:99;
 }
 .arrow-left {
     position: absolute;
     top: 50%;
     margin-top: -50px;
+    z-index: 99;
 }
 .arrow-top {
     position: absolute;
     left: 50%;
     margin-left: -100px;
+    z-index: 99;
 }
 .arrow-bottom {
     position: absolute;
@@ -111,56 +114,77 @@ app {
     margin-left: -100px;
     top: 100%;
     margin-top: -200px;
+    z-index: 99;
 }
 
-.center {
-    background-color: white;
-    transition: width 1s;
-    width: 0;
-}
-
-    .center .active {
-        width: 100vw;
-        height:100vh;
-    }
 .content > div {
-    position: relative;
     margin: 0;
     padding: 0;
 }
 
+.center {
+    background-color: greenyellow;
+    transition: all 1s;
+    width: 100vw;
+}
+
 .left {
+    position: relative;
     background-color: green;
-    transition: width 1s;
     width: 0;
+    height: 0;
+    opacity: 0;
+    transition: width 1s, opacity 1s;
 }
     .left.active {
+        opacity: 1;
         width: 100vw;
-    }
-
-.right {
-    background-color: red;
-    transition: left 1s;
-}
-    .right .active {
-        left: 200vw;
-    }
-
-.top {
-    background-color: green;
-    transition: width 1s;
-    width: 0;
-}
-    .top .active {
         height: 100vh;
     }
 
-.bottom {
+.right {
+    position:fixed;
     background-color: red;
-    transition: left 1s;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    right: 100vw;
+    transition: width 1s, opacity 1s;
 }
-    .bottom .active {
-        bottom: 100vh;
+    .right.active {
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 1;
+    }
+
+.top {
+    position: fixed;
+    background-color: yellow;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: height 1s, opacity 1s;
+}
+    .top.active {
+        height: 100vh;
+        opacity: 1;
+        width: 100vw;
+    }
+
+.bottom {
+    position:unset;
+    background-color: blue;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    bottom: 100vh;
+    transition: height 1s, opacity 1s;
+}
+    .bottom.active {
+        height: 100vh;
+        opacity: 1;
+        width: 100vw;
     }
 
 /* ---------------------------------------------

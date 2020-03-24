@@ -8,13 +8,27 @@
 <!-- The rest of the component-->
 <div tabindex="0" class="main" @onkeydown="ToggleScreens">
     <div class="content" @onkeydown="ToggleScreens">
-        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowRight" class="arrow-right @IsVisibleClassArrowRight" src="../images/ARROW_RIGHT.png" height="150" width="150"/>
-        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowLeft" class="arrow-left @IsVisibleClassArrowLeft" src="../images/ARROW_LEFT.png" height="150" width="150"/>
-        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowTop" class="arrow-top @ActiveCssClassArrowTop @IsVisibleClassArrowTop" src="../images/ARROW_TOP.png" height="150" width="150"/>
-        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowBottom" class="arrow-bottom @ActiveCssClassArrowBottom @IsVisibleClassArrowBottom" src="../images/ARROW_BOTTOM.png" height="150" width="150"/>
-        <div class="left @ActiveCssClassArrowLeft @IsVisibleClassContentLeft"> <MyPortfolio.Pages.AboutMePage /></div>
-        <div class="right @ActiveCssClassArrowRight @IsVisibleClassContentRight"> <MyPortfolio.Pages.WorkExperiencePage /></div>
-        <div class="center @IsVisibleClassContentCentre"> <MyPortfolio.Pages.Index/></div>
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowRight" class="arrow-right @IsVisibleClassArrowRight" src="../images/ARROW_RIGHT.png" height="150" width="150" />
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowLeft" class="arrow-left @IsVisibleClassArrowLeft" src="../images/ARROW_LEFT.png" height="150" width="150" />
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowTop" class="arrow-top @ActiveCssClassArrowTop @IsVisibleClassArrowTop" src="../images/ARROW_TOP.png" height="150" width="150" />
+        <img @onkeydown="ToggleScreens" @onclick="toggleActiveClassArrowBottom" class="arrow-bottom @ActiveCssClassArrowBottom @IsVisibleClassArrowBottom" src="../images/ARROW_BOTTOM.png" height="150" width="150" />
+
+        <div class="left @ActiveCssClassArrowLeft">
+            <MyPortfolio.Pages.AboutMePage />
+        </div>
+        <div class="right @ActiveCssClassArrowRight">
+            <MyPortfolio.Pages.WorkExperiencePage />
+        </div>
+        <div class="top @ActiveCssClassArrowTop">
+            <MyPortfolio.Pages.SkillsPage />
+        </div>
+        <div class="bottom @ActiveCssClassArrowBottom">
+            <MyPortfolio.Pages._404ErrorPage />
+        </div>
+        <div class="center @ActiveCssClassCentre">
+            <MyPortfolio.Pages.Index />
+        </div>
+
     </div>
 </div>
 
@@ -103,10 +117,11 @@
   /// <summary>
   /// 'ACTIVE' css class enabling
   /// </summary>
-  protected string ActiveCssClassArrowRight => ActiveArrowDirection == Direction.Right ? ".active" : string.Empty;
-  protected string ActiveCssClassArrowLeft => ActiveArrowDirection == Direction.Left ? ".active" : string.Empty;
-  protected string ActiveCssClassArrowTop => ActiveArrowDirection == Direction.Top ? ".active" : string.Empty;
-  protected string ActiveCssClassArrowBottom => ActiveArrowDirection == Direction.Bottom ? ".active" : string.Empty;
+  protected string ActiveCssClassArrowRight => ActiveArrowDirection == Direction.Right ? "active" : string.Empty;
+  protected string ActiveCssClassArrowLeft => ActiveArrowDirection == Direction.Left ? "active" : string.Empty;
+  protected string ActiveCssClassArrowTop => ActiveArrowDirection == Direction.Top ? "active" : string.Empty;
+  protected string ActiveCssClassArrowBottom => ActiveArrowDirection == Direction.Bottom ? "active" : string.Empty;
+  protected string ActiveCssClassCentre => ActiveArrowDirection == Direction.None ? "active" : string.Empty;
 
   /// <summary>
   /// Appends .visible and .hidden classes for allowed arrows
