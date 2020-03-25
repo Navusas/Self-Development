@@ -88,28 +88,44 @@ app {
     display: none;
 }
 
+.content > div {
+    margin: 0;
+    padding: 0;
+}
+/* ---------------------------------------------
+                 Main Styling End
+   --------------------------------------------- */
+
+
+/* ---------------------------------------------
+    Different Direction Pages Transitions Start
+   --------------------------------------------- */
+
 .arrow-right {
     position: fixed;
     left: 100%;
     margin-left: -200px;
     top: 50%;
     margin-top: -50px;
-    z-index:99;
+    z-index: 99;
 }
+
 .arrow-left {
-    position: absolute;
+    position: fixed;
     top: 50%;
     margin-top: -50px;
     z-index: 99;
 }
+
 .arrow-top {
-    position: absolute;
+    position: fixed;
     left: 50%;
     margin-left: -100px;
     z-index: 99;
 }
+
 .arrow-bottom {
-    position: absolute;
+    position: fixed;
     left: 50%;
     margin-left: -100px;
     top: 100%;
@@ -117,81 +133,76 @@ app {
     z-index: 99;
 }
 
-.content > div {
-    margin: 0;
-    padding: 0;
+.center,
+.left,
+.right,
+.bottom,
+.top {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
 }
+
+.left,
+.right {
+    width: 0%;
+    height: 0%;
+    /* Width transition has to be applied for left/right*/
+    transition: height 0.1s, width 0.75s ease-out, z-index 0s linear, opacity 0.5s ease-in;
+}
+    .center.active,
+    .left.active,
+    .right.active {
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+        z-index: 10;
+        transition: height 1s, width 0.75s ease-out, z-index 0s linear, opacity 0.5s ease-in;
+    }
+
+.bottom,
+.top {
+    width: 0%;
+    height: 0%;
+    /* Height transition has to be applied for left/right*/
+    transition: width 0.1s, height 0.75s ease-out, z-index 0s linear, opacity 0.5s ease-in;
+}
+    .bottom.active,
+    .top.active {
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+        z-index: 10;
+        transition: width 1s, height 0.75s ease-out, z-index 0s linear, opacity 0.5s ease-in;
+    }
 
 .center {
     background-color: greenyellow;
-    transition: all 1s;
-    width: 0 !important;
-    height: 0 !important;
-    opacity: 0;
 }
-    .center.active {
-        width: 100vw;
-        height: 100vh;
-        opacity: 1;
-    }
 
 .left {
-    position: fixed;
     background-color: green;
-    width: 0;
-    height: 100%;
-    opacity: 0;
-    transition: width 1s, opacity 1s;
 }
-    .left.active {
-        opacity: 1;
-        width: 100%;
-    }
 
 .right {
-    position: fixed;
     background-color: red;
-    width: 0;
-    height: 100%;
-    opacity: 0;
     right: 0;
-    transition: width 1s, opacity 1s;
 }
-    .right.active {
-        width: 100%;
-        opacity: 1;
-    }
 
 .top {
-    position: fixed;
     background-color: yellow;
-    width: 100%;
-    height: 0;
-    opacity: 0;
-    transition: height 1s, opacity 1s;
 }
-    .top.active {
-        height: 100%;
-        opacity: 1;
-    }
 
 .bottom {
-    position: fixed;
     background-color: blue;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    top: 100%;
-    transition: top 1s, opacity 1s;
+    bottom: 0;
 }
-    .bottom.active {
-        opacity: 1;
-        top: 5%;
-    }
-
 /* ---------------------------------------------
-                 Main Styling End
+    Different Direction Pages Transitions End
    --------------------------------------------- */
+
+
+
 /* ---------------------------------------------
                Navigation Panel Start
    --------------------------------------------- */
@@ -254,6 +265,9 @@ app {
 
 .content {
     padding: 0;
+    position:relative;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .navbar-toggler {
@@ -323,7 +337,7 @@ app {
     .sidebar {
         width: 100%;
         height: 3.5rem;
-        position:sticky;
+        position:relative;
     }
 
     .main > div {
